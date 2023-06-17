@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.7/css/pico.min.css"> -->
+</head>
+
+<body class="container">
+  <h1>PopToast.js</h1>
+  <p>洗練されたtoastを表示するためのカスタマイズ性の高いJavaScriptライブラリ</p>
+  <button id="show-toast">Show Toast</button>
+
+  <!-- Scripts  -->
+  <script type="module" src="poptoast.js"></script>
+  <script type="module">
+    import PopToast from './poptoast.js';
+
+    const toast = new PopToast();
+    const showButton = document.querySelector('#show-toast');
+
+    showButton.addEventListener('click', () => {
+      toast.show('hey');
+      toast.show('Hello, World!', {type: 'info', duration: 1000000, position: 'top-right', closeable: true, style: {color: 'red'}});
+    });
+  </script>
+
+</body>
+
+</html>

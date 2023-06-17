@@ -1,0 +1,74 @@
+/* Container for toast messages */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Base style for toast messages */
+.toast {
+  margin-bottom: 15px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: black;
+  background-color: white;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  transform: translateX(100%);
+}
+
+/* Styles for different types of toast messages */
+.toast-info {
+  background-color: #2196F3;
+}
+
+.toast-success {
+  background-color: #4CAF50;
+}
+
+.toast-warning {
+  background-color: #FF9800;
+}
+
+.toast-error {
+  background-color: #F44336;
+}
+
+/* Style for toast message */
+.toast-message {
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+/* Style for close button */
+.toast-close {
+  font-size: 20px;
+  padding: 0px 4px;
+  line-height: 1;
+  color: white;
+  opacity: 0.6;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/* Animation classes */
+.toast-show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-hidden {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
