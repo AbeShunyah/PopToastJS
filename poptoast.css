@@ -1,31 +1,31 @@
 /* Container for toast messages */
 .pop-toast-container {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
   z-index: 9999;
 }
 
 /* Base style for toast messages */
 .pop-toast {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   padding: 8px 16px;
   border-radius: 8px;
   color: #222;
   background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
   font-size: 14px;
   display: flex;
   align-items: center;
-  transform: translateX(100%);
+  opacity: 0; /* 初めて表示されたときのアニメーションのために不透明度を0に設定します。 */
+  transform: translateY(-100%); /* スライド表示アニメーション（方向） */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* 不透明度と位置の変化にアニメーションを追加します。 */
 }
 
 /* Style for toast message */
 .pop-toast-message {
   margin-right: 10px;
-  flex-grow: 1;
+  flex-grow: 1; /* 余ったスペースを利用して、メッセージが他の要素を圧迫しないようにします。 */
 }
 
 /* Style for close button */
@@ -42,19 +42,19 @@
 }
 
 .pop-toast-close:hover {
-  opacity: 1;
+  opacity: 1 /* マウスが乗ったときの強調表示 */
 }
 
 /* Animation classes */
 .pop-toast-show {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);/* スライド表示アニメーション（方向） */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .pop-toast-hidden {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateY(-100%);/* スライド表示アニメーション（方向） */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -63,8 +63,32 @@
 }
 
 .pop-toast-icon svg {
-  vertical-align: middle;
+  vertical-align: middle; /* アイコンがメッセージと同じ高さになるように設定します。 */
 }
+
+/* position */
+.pop-toast-top-right {
+  /* デフォルトなので不要 */
+}
+
+.pop-toast-top-left {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+}
+
+.pop-toast-bottom-right {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+
+.pop-toast-bottom-left {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+}
+
 
 /* Icons color */
 .pop-toast-success .pop-toast-icon {

@@ -1,3 +1,4 @@
+<!-- このページはデプロイしない -->
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,12 +11,15 @@
   <!-- Highlight.js -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github-dark.min.css">
   <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script>
+    hljs.highlightAll();
+  </script>
 </head>
 
 <body class="container">
   <h1>PopToast.js</h1>
   <p>美しいtoastを表示するためのカスタマイズ性の高いJavaScriptライブラリ</p>
+  <p><a href="https://github.com/AbeShunyah/PopToastJS">GitHub</a></p>
 
   <h2>デモ</h2>
   <button id="show-default" class="btn">Toast(success)を表示する</button>
@@ -26,6 +30,14 @@
 
   <p>&nbsp;</p>
   <h2>使用方法</h2>
+  <h3>CDN</h3>
+  <pre>
+    <code>
+      &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AbeShunyah/PopToastJS@main/poptoast.css"&gt;
+      &lt;script src="https://cdn.jsdelivr.net/gh/AbeShunyah/PopToastJS@main/poptoast.js"&gt;&lt;/script&gt;
+    </code>
+  </pre>
+  <h3>コード</h3>
   <pre>
     <!-- HTMLでは、特定の文字はHTMLエンティティに変換しなければならない場合があります。
         これは、それらの文字がHTMLのマークアップと混同されるのを避けるためです。
@@ -57,23 +69,39 @@
     const buttonShowCustomized = document.querySelector('#show-customized');
 
     buttonShowDefault.addEventListener('click', () => {
-      toast.show('こんにちは！これはPopToastです。', {type: 'success'});
+      toast.show('こんにちは！これはPopToastです。', {
+        type: 'success'
+      });
     });
 
     buttonShowWarning.addEventListener('click', () => {
-      toast.show('こんにちは！これはwarningのPopToastです。', {type: 'warning'});
+      toast.show('こんにちは！これはwarningのPopToastです。', {
+        type: 'warning'
+      });
     });
 
     buttonShowError.addEventListener('click', () => {
-      toast.show('こんにちは！これはerrorのPopToastです。', {type: 'error'});
+      toast.show('こんにちは！これはerrorのPopToastです。', {
+        type: 'error'
+      });
     });
 
     buttonShowInfo.addEventListener('click', () => {
-      toast.show('こんにちは！これはinfoのPopToastです。', {type: 'info'});
+      toast.show('こんにちは！これはinfoのPopToastです。', {
+        type: 'info'
+      });
     });
 
     buttonShowCustomized.addEventListener('click', () => {
-      toast.show('こんにちは！これはカスタマイズされたPopToastです。', {type: 'error', duration: 5000, position: 'bottom-right', closeable: false, style: {color: 'blue'}});
+      toast.show('こんにちは！これはカスタマイズされたPopToastです。', {
+        type: 'error',
+        duration: 5000,
+        position: 'bottom-right',
+        closeable: false,
+        style: {
+          color: 'blue'
+        }
+      });
     });
   </script>
 </body>
