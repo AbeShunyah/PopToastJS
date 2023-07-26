@@ -11,8 +11,8 @@
   margin-bottom: 15px;
   padding: 8px 16px;
   border-radius: 8px;
-  color: black;
-  background-color: white;
+  color: #222;
+  background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -20,23 +20,6 @@
   display: flex;
   align-items: center;
   transform: translateX(100%);
-}
-
-/* Styles for different types of toast messages */
-.toast-info {
-  background-color: #2196F3;
-}
-
-.toast-success {
-  background-color: #4CAF50;
-}
-
-.toast-warning {
-  background-color: #FF9800;
-}
-
-.toast-error {
-  background-color: #F44336;
 }
 
 /* Style for toast message */
@@ -50,10 +33,12 @@
   font-size: 20px;
   padding: 0px 4px;
   line-height: 1;
-  color: white;
+  color: #555;
   opacity: 0.6;
   font-weight: bold;
   cursor: pointer;
+  border: none;
+  border-radius: 100%;
 }
 
 .toast-close:hover {
@@ -71,4 +56,29 @@
   opacity: 0;
   transform: translateX(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-icon {
+  margin-right: 4px;
+}
+
+.toast-icon svg {
+  vertical-align: middle;
+}
+
+/* Icons color */
+.toast-success .toast-icon {
+  color: #4CAF50;
+}
+
+.toast-warning .toast-icon {
+  color: #FF9800;
+}
+
+.toast-error .toast-icon {
+  color: #F44336;
+}
+
+.toast-info .toast-icon {
+  color: #2196F3;
 }

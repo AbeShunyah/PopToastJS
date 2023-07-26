@@ -4,30 +4,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toast Demo</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.7/css/pico.min.css"> -->
+  <title>PopToast.js</title>
+  <!-- Custom poptoast.css -->
+  <link rel="stylesheet" href="poptoast.css">
+  <!-- Highlight.js -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github-dark.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 
 <body class="container">
   <h1>PopToast.js</h1>
-  <p>洗練されたtoastを表示するためのカスタマイズ性の高いJavaScriptライブラリ</p>
-  <button id="show-toast">Show Toast</button>
+  <p>美しいtoastを表示するためのカスタマイズ性の高いJavaScriptライブラリ</p>
+
+  <h2>デモ</h2>
+  <button id="show-default" class="btn">Toast(success)を表示する</button>
+  <button id="show-warning" class="btn">Toast(warning)を表示する</button>
+  <button id="show-error" class="btn">Toast(error)を表示する</button>
+  <button id="show-info" class="btn">Toast(info)を表示する</button>
+  <button id="show-customized" class="btn">Toast(カスタマイズ版)を表示する</button>
+
+  <p>&nbsp;</p>
+  <h2>使用方法</h2>
+  <pre>
+    <!-- HTMLでは、特定の文字はHTMLエンティティに変換しなければならない場合があります。
+        これは、それらの文字がHTMLのマークアップと混同されるのを避けるためです。
+        例えば < は &lt; に、 > は &gt; になります。
+        highlight.jsでは、HTMLエンティティがエスケープされているコードを期待しています。
+        そのため、上記のようにコードブロック内の < や > をエスケープすることで、
+        highlight.jsは正常に機能します。 -->
+    <code class="javascript">
+      const toast = new PopToast();
+      const buttonShowDefault = document.querySelector('#show-default');
+      buttonShowDefault.addEventListener('click', () =&gt; {
+      toast.show('こんにちは！これはPopToastです。', {type: 'success'});
+    });
+    </code>
+  </pre>
+
+  <footer>
+    Thanks: Bootstrap Icons
+  </footer>
 
   <!-- Scripts  -->
-  <script type="module" src="poptoast.js"></script>
-  <script type="module">
-    import PopToast from './poptoast.js';
-
+  <script src="/poptoast.js"></script>
+  <script>
     const toast = new PopToast();
-    const showButton = document.querySelector('#show-toast');
+    const buttonShowDefault = document.querySelector('#show-default');
+    const buttonShowWarning = document.querySelector('#show-warning')
+    const buttonShowError = document.querySelector('#show-error');
+    const buttonShowInfo = document.querySelector('#show-info')
+    const buttonShowCustomized = document.querySelector('#show-customized');
 
-    showButton.addEventListener('click', () => {
-      toast.show('hey');
-      toast.show('Hello, World!', {type: 'info', duration: 1000000, position: 'top-right', closeable: true, style: {color: 'red'}});
+    buttonShowDefault.addEventListener('click', () => {
+      toast.show('こんにちは！これはPopToastです。', {type: 'success'});
+    });
+
+    buttonShowWarning.addEventListener('click', () => {
+      toast.show('こんにちは！これはwarningのPopToastです。', {type: 'warning'});
+    });
+
+    buttonShowError.addEventListener('click', () => {
+      toast.show('こんにちは！これはerrorのPopToastです。', {type: 'error'});
+    });
+
+    buttonShowInfo.addEventListener('click', () => {
+      toast.show('こんにちは！これはinfoのPopToastです。', {type: 'info'});
+    });
+
+    buttonShowCustomized.addEventListener('click', () => {
+      toast.show('こんにちは！これはカスタマイズされたPopToastです。', {type: 'error', duration: 5000, position: 'bottom-right', closeable: false, style: {color: 'blue'}});
     });
   </script>
-
 </body>
+
+<style>
+  body {
+    color: #333;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .btn {
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    outline: none;
+    background-color: #217afa;
+    color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  footer {
+    margin-top: 80px;
+    text-align: center;
+  }
+</style>
 
 </html>
