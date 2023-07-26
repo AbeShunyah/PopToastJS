@@ -4,7 +4,7 @@ class PopToast {
   constructor() {
     // Create a container for the toast messages and append it to the body
     this.toastContainer = document.createElement('div');
-    this.toastContainer.classList.add('toast-container');
+    this.toastContainer.classList.add('pop-toast-container');
     document.body.appendChild(this.toastContainer);
   }
 
@@ -32,11 +32,11 @@ class PopToast {
 
     // Create the toast element and add appropriate classes
     const toast = document.createElement('div');
-    toast.classList.add('toast', `toast-${options.type}`, `toast-${options.position}`);
+    toast.classList.add('pop-toast', `pop-toast-${options.type}`, `pop-toast-${options.position}`);
 
     // Create the icon element and set its innerHTML to the corresponding SVG
     const iconElement = document.createElement('div');
-    iconElement.classList.add('toast-icon');
+    iconElement.classList.add('pop-toast-icon');
     iconElement.innerHTML = iconSVGs[options.type];
 
     // Append the icon element to the toast
@@ -49,14 +49,14 @@ class PopToast {
 
     // Create the message element and append it to the toast
     const messageElement = document.createElement('div');
-    messageElement.classList.add('toast-message');
+    messageElement.classList.add('pop-toast-message');
     messageElement.textContent = message;
     toast.appendChild(messageElement);
 
     // If the toast is closeable, add a close button
     if (options.closeable) {
       const closeButton = document.createElement('button');
-      closeButton.classList.add('toast-close');
+      closeButton.classList.add('pop-toast-close');
       closeButton.innerHTML = '&times;';
       closeButton.addEventListener('click', () => {
         this.hide(toast);
@@ -69,7 +69,7 @@ class PopToast {
 
     // Animate the toast after a short delay
     setTimeout(() => {
-      toast.classList.add('toast-show');
+      toast.classList.add('pop-toast-show');
     }, 0);
 
     // Hide the toast after the specified duration
@@ -81,8 +81,8 @@ class PopToast {
   // Method to hide a toast message
   hide(toast) {
     // Add the 'toast-hidden' class to animate hiding
-    toast.classList.remove('toast-show');
-    toast.classList.add('toast-hidden');
+    toast.classList.remove('pop-toast-show');
+    toast.classList.add('pop-toast-hidden');
     // Remove the toast from the DOM after the hiding animation finishes
     toast.addEventListener('transitionend', () => {
       toast.remove();

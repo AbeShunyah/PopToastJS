@@ -1,5 +1,5 @@
 /* Container for toast messages */
-.toast-container {
+.pop-toast-container {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -7,7 +7,7 @@
 }
 
 /* Base style for toast messages */
-.toast {
+.pop-toast {
   margin-bottom: 15px;
   padding: 8px 16px;
   border-radius: 8px;
@@ -23,13 +23,13 @@
 }
 
 /* Style for toast message */
-.toast-message {
+.pop-toast-message {
   margin-right: 10px;
   flex-grow: 1;
 }
 
 /* Style for close button */
-.toast-close {
+.pop-toast-close {
   font-size: 20px;
   padding: 0px 4px;
   line-height: 1;
@@ -41,44 +41,44 @@
   border-radius: 100%;
 }
 
-.toast-close:hover {
+.pop-toast-close:hover {
   opacity: 1;
 }
 
 /* Animation classes */
-.toast-show {
+.pop-toast-show {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.toast-hidden {
+.pop-toast-hidden {
   opacity: 0;
   transform: translateX(100%);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.toast-icon {
+.pop-toast-icon {
   margin-right: 4px;
 }
 
-.toast-icon svg {
+.pop-toast-icon svg {
   vertical-align: middle;
 }
 
 /* Icons color */
-.toast-success .toast-icon {
+.pop-toast-success .pop-toast-icon {
   color: #4CAF50;
 }
 
-.toast-warning .toast-icon {
+.pop-toast-warning .pop-toast-icon {
   color: #FF9800;
 }
 
-.toast-error .toast-icon {
+.pop-toast-error .pop-toast-icon {
   color: #F44336;
 }
 
-.toast-info .toast-icon {
+.pop-toast-info .pop-toast-icon {
   color: #2196F3;
 }
